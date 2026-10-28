@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+<title>Hospital Management System</title>
+<style>
+* {
+    margin: 0;
+    pandding: 0;
+    box-sizing:
+    border-box;
+}
+body {
+    font-family: Arial, sans-serif:
+    background: #f0f7fa;
+    color: #263238;
+}
+header {
+    background: #087f8c;
+    color: white;
+    pandding: 25px;
+    text-align: center;
+}
+nav {
+    background: #075b66;
+    pandding: 15px;
+    text-align: center;
+}
+nav a {
+    color: white;
+    text-decoration:
+    none;
+    margin: 12px;
+    font-weight: bold;
+}
+.hero {
+    text-align: center;
+    pandding: 55px 20px;
+    background: #d8f3f5;
+}
+'hero h2 {
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+.hero p {
+    margin-bottom: 22px;
+}
+bottom{
+    background: #087f8c;
+    color: white;
+    border: none;
+    pandding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.container{
+    pandding: 30px 20px;
+    max-width: 1100px;
+    margin: auto;
+}
+.container h2 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+.cards {
+    display: grid;
+    grid-template-columns:
+    repeat(auto-fit, minmax(220px,1fr));
+    gap: 20px;
+}
+.card {
+    background: white;
+    pandding: 25px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px #00000015;
+}
+.card h3 {
+    color: #087f8c;
+    margin-bottom: 12px;
+}
+.appointment {
+    background: white;
+    pandding: 25px;
+    max-width: 550px;
+    margin: 30px auto;
+    border-radius: 10px;
+}
+.appointment input,
+.appointment select{
+    width: 100%;
+    pandding: 12px;
+    margin: 8px 0 15px;
+    border: 1px solid
+    #bbb;
+    border-radius: 5px;
+}
+footer{
+    background: #075b66;
+    color: white;
+    text-align: center;
+    pandding: 20px;
+    margin-top: 30px;
+}
+@media(max-width:600px){
+    nav a {
+        display:
+        inline-block;
+        margin: 8px;
+    }
+    .hero h2 {
+        font-size: 25px;
+    }
+}
+</style>
+</head>
+<body>
+<header>
+<h1>City Care Hospital</h1>
+<p>Your Health, Our Priority</p>
+</header>
+<nav>
+<a href="#home">Home</a>
+<a href="#services">Services</a>
+<a href="#doctors">Doctors</a>
+<a href="#appointment">Appointment</a>
+<a href="#contact">Contact</a>
+<section class="hero" id="home">
+<h2>Welcome to City Care Hospital</h2>
+<p>Quality healthcare and compssionate care for everyone.</p>
+<button
+onclick="document.getElementById('appointment').scrollIntoView({behavior:'smooth'})">
+Book an Appointment
+</button>
+</section>
+<section class="container" 
+id="services">
+<h2>Our Services</h2>
+<div class="cards"
+<div class="card">
+<h3>General Checkup</h3>
+<p>General health consultation and checkups.</p>
+</div>
+<div class="card">
+<h3>Emergency 
+Care</h3>
+<p>Emergency assistance and patient care.</p>
+</div>
+<div class"card">
+<h3>
+Laboratory</h3>
+<p>Laboratory testing and diagnostic services.</p>
+</div>
+<div class="card">
+<h3>Pharmacy</h3>
+<p>Information about hospital Pharmacy
+services.</p>
+</div>
+</div>
+</section>
+<section class="container"
+id="doctors">
+<h2>Our Departments</h2>
+<div class="cards">
+<div class="card">
+<h3>Cardiology</h3>
+<p>Heart health services.</p>
+</div>
+<div class="card">
+<h3>Neurology</h3>
+<p>Brain and nervous System services.</p>
+</div>
+<div class="card"
+<h3>Orthpedics</h3>
+<p>Bone and joint care services.</p>
+</div>
+</div>
+</section>
+<section class="appointment"
+id="appointment">
+<h2>Book an Appointment</h2>
+<form
+id="appointmentForm">
+<label>Patient 
+Name</label>
+<input type="text"
+id="patientName"
+placeholder="Enter patient name"required>
+<label>Mobile 
+Number</label>
+<input type="tel"
+id="Mobile"
+placeholder="Enter Mobile Number"
+pattern="[0-9] {10}" required>
+<label>Select Department</label>
+<select
+id="Department" required>
+<option
+value="">Choose Department</option>
+<option>General Medicine</option>
+<option>Cardiology</option>
+<option>Neurology</option>
+<option>Orthpedics</option>
+</select>
+<label>Appointment Date</label>
+<input type="date"
+id="date" required>
+<button
+type="submit">submit
+Appointment</button>
+</form>
+<p id="message"
+role="status"></p>
+</section>
+<section class="container"
+id="contact">
+<h2>Contact Us</h2>
+<div class="card">
+<p>City Care Hospital</p>
+<p>Email:
+sapnakumaripatna@123.com</p>
+<p>Address:
+Patna Medical College & Hospital(PMCH),Patna.</p>
+</div>
+</section>
+<footer>
+<p>&copy; 2026 City Care Hospital | Student Project</p>
+</footer>
+<script>
+document.getElementById("date").
+min=
+new
+Date().toISOString().split("T")[0];
+document.getElementById("appointmentForm")
+.addEventListener("submit",function(event) {
+    event.preventDefault();
+const name = 
+document.getElementById("Patient Name").value.trim();
+document.getElementById("message").textContent = 
+"Thank You , "Sapna Sakshi
+"! Demo 
+appointment form submitted successfully.";
+this.reset();
+});
+</script>
+</body>
+</html>
